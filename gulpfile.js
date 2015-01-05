@@ -6,7 +6,9 @@ gulp.task('watch', function() {
 });
 
 gulp.task('webserver', function() {
-    connect.server();
+    connect.server({
+        port: 8000
+    });
 });
 
 gulp.task('default', ['webserver', 'watch']);
