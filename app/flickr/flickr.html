@@ -1,0 +1,14 @@
+<h1>Teste</h1>
+<md-content layout="column" layout-align="center center">
+    <div class="app-content">
+        <form ng-submit="search()">
+            <md-text-float label="Search for" class="long" ng-model="searchTerm" ng-show="!isSearching"></md-text-float>
+            <md-progress-circular ng-show="isSearching" md-theme="blue" md-mode="indeterminate"></md-progress-circular>
+        </form>
+
+        <md-card ng-repeat="picture in results.photos.photo">
+            <img ng-src="https://farm{{ picture.farm }}.staticflickr.com/{{ picture.server }}/{{ picture.id }}_{{ picture.secret }}_b.jpg" alt="" class="md-card-image" />
+            <h3>{{ picture.title }}</h3>
+        </md-card>
+    </div>
+</md-content>

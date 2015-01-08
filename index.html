@@ -6,11 +6,11 @@
 
     <link rel="stylesheet" href="app/content/bower/angular-material/angular-material.min.css" media="all">
     <link rel="stylesheet" href="app/content/bower/angular-material/themes/blue-theme.css" media="all">
-    <link rel="stylesheet" href="style.css" media="all">
+    <link rel="stylesheet" href="app/content/style.css" media="all">
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic," media="all">
     <title>Flickr Search</title>
 </head>
-<body data-ng-app="flickrApp" ng-controller="ListController" layout="column" layout-align="top center">
+<body data-ng-app="flickrApp" layout="column" layout-align="top center">
 
     <md-toolbar>
         <div class="md-toolbar-tools">
@@ -18,19 +18,7 @@
         </div>
     </md-toolbar>
 
-    <md-content layout="column" layout-align="center center">
-        <div class="app-content">
-            <form ng-submit="search()">
-                <md-text-float label="Search for" class="long" ng-model="searchTerm" ng-show="!isSearching"></md-text-float>
-                <md-progress-circular ng-show="isSearching" md-theme="blue" md-mode="indeterminate"></md-progress-circular>
-            </form>
-
-            <md-card ng-repeat="picture in results.photos.photo">
-                <img ng-src="https://farm{{ picture.farm }}.staticflickr.com/{{ picture.server }}/{{ picture.id }}_{{ picture.secret }}_b.jpg" alt="" class="md-card-image" />
-                <h3>{{ picture.title }}</h3>
-            </md-card>
-        </div>
-    </md-content>
+    <div ng-view></div>
 
     <script type="text/javascript" src="app/content/bower/angular/angular.min.js"></script>
     <script type="text/javascript" src="app/content/bower/angular-route/angular-route.min.js"></script>
@@ -39,6 +27,8 @@
     <script type="text/javascript" src="app/content/bower/hammerjs/hammer.min.js"></script>
     <script type="text/javascript" src="app/content/bower/angular-material/angular-material.min.js"></script>
 
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="app/app.module.js"></script>
+    <script type="text/javascript" src="app/flickr/flickr.module.js"></script>
+    <script type="text/javascript" src="app/flickr/flickr.controller.js"></script>
 </body>
 </html>
